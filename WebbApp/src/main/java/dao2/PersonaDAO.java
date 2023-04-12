@@ -15,8 +15,8 @@ import conexion.DAOException;
 
 public class PersonaDAO extends ConnectionManager implements DAO{
 			
-	private static final String SQL_SELECT = "SELECT id_persona,nombre,apellido,telefono,correo,dni,usser,password FROM formulario.datos";
-	private static final String SQL_SELECT_LOGIN = "Select * FROM formulario.datos WHERE usser=? AND password=?";
+	private static final String SQL_SELECT = "SELECT id_persona,nombre,apellido,telefono,correo,dni,usuario,password FROM formulario.datos";
+	private static final String SQL_SELECT_LOGIN = "SELECT * FROM formulario.datos WHERE usser=? AND password=?";
 	private static final String SQL_INSERT = "INSERT INTO formulario.datos (nombre,apellido,telefono,correo,dni,usser,password) VALUES (?,?,?,?,?,?,?)";	
 	private static final String SQL_UPDATE = "UPDATE formulario.datos SET nombre= ? ,apellido = ?,telefono = ?,correo= ?, dni= ? ,usser = ? ,password = ?   WHERE id_persona = ? ";
 	private static final String SQL_DELETE = "DELETE FROM formulario.datos WHERE id_persona = ? ";
@@ -151,8 +151,8 @@ public class PersonaDAO extends ConnectionManager implements DAO{
 				int telefono    =      rs.getInt("telefono");
 				String email    =     rs.getString("correo");
 				int dni         =           rs.getInt("dni");
-				String usser     =     rs.getString("usser");
-				String pass     =   rs.getString("password"); 
+				String usser     =     rs.getString("usuario");
+				String pass     =   rs.getString("password "); 
 				persona = new Persona(id, nombre, apellido, telefono, email, dni, usser, pass);
 			    personas.add(persona);	
 			
