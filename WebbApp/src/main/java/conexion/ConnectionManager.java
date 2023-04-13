@@ -15,7 +15,7 @@ public class ConnectionManager {
 		
 		Connection con = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/formulario","root", "admin");
 		} catch (Exception e) {
 			System.out.println("Error al conectar" + e.getMessage());

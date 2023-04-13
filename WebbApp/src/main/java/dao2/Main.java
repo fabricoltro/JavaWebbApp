@@ -32,74 +32,50 @@ public class Main {
 		switch (variable) {
 		case 1: {
 			
-			Persona persona = new Persona ("chanchope", "abila", 38383838,"chanchopeok@hotmail.com",24325853, "canchook", "fede" );
+			List<Persona> personas = personaDao.obtenerTodos2();
+			for (Persona persona : personas ) {
+				System.out.println("persona =" + persona);
+			}
+			
+			break ;
+		}
+		case 2: {
+			
+			Persona persona = new Persona ("romanco", "riquelme", 38383838,"chanchopeok@hotmail.com",24325853, "canchook", "fede" );
 			personaDao.insertar(persona);
 			
+			
+			System.out.println(persona);
+			break ;
+		}
+		case 3: {
+			
+			Persona personaModificar = new Persona (2,"roman", "riquelme", 38383838,"rriquelme@hotmail.com",24325853, "canchook", "fede" );
+			personaDao.actualizar(personaModificar);
+			
+			
+			System.out.println(personaModificar);
+			break ;
+		}
+		case 4: {
+			
+			Persona personaeliminar = new Persona(3);
+			personaDao.eliminar(personaeliminar);
+			
+			
+			System.out.println(personaeliminar);
 			break ;
 		}
 		default:
 			System.out.println("opcion no valida");
 		}
-		
+		System.out.println("Select final : ");
 		List<Persona> personas = personaDao.obtenerTodos2();
 		for (Persona persona : personas ) {
 			System.out.println("persona =" + persona);
 		}	
-		/*
 		
-		
-		//prueba de consultas				
-		
-		/*Connection conexion = null;			
-		
-		 SELECT *
-		
-		PersonaDAO personaDao = new PersonaDAO();
-		List<Persona> personas =  personaDao.obtenerTodos2(); 
-		for (Persona persona: personas) {
-			System.out.println( "   persona =  "  +  persona + "  ");
-			}
-		
-		
-		//login
-		
-		Persona persona = new Persona();
-		personaDao.obtenerLogin("ricardo", "fort123");	
-		
-		System.out.println(persona.getUsser());
-		System.out.println(persona.getPassword());
-		
-		//INSERT
-		
-		
-		
-		Persona persona = new Persona ("chanchope", "abila", 38383838,"chanchopeok@hotmail.com",24325853, "canchook", "fede" );
-		personaDao.insertar(persona);
-		
-		  
-		  
-		//UPDATE
-        /*
-		
-		PersonaDAO personaDao = new PersonaDAO();
-		
-		Persona personaActualizar = new Persona(82, "wanchope", "abilax", 32212318, "eltitere@hotmail.com", 23254431, "canchope", "fedede");
-		personaDao.actualizar(personaActualizar);
-		List<Persona> personas = personaDao.obtenerTodos2();
-		for (Persona persona : personas ) {
-			System.out.println("persona =" + persona);
-		}				
-						
-						
-	    */	
 	
-		//DELETE
-		
-		/*
-		Persona personaeliminar = new Persona(2);
-		personaDao.eliminar(personaeliminar);										
-	    */
-		
 		
 	}
 

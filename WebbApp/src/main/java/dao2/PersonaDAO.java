@@ -15,10 +15,10 @@ import conexion.DAOException;
 
 public class PersonaDAO extends ConnectionManager implements DAO{
 			
-	private static final String SQL_SELECT = "SELECT id_persona,nombre,apellido,telefono,correo,dni,usuario,password FROM formulario.datos";
+	private static final String SQL_SELECT = "SELECT id_persona,nombre,apellido,correo,telefono,usuario,password,dni FROM formulario.datos";
 	private static final String SQL_SELECT_LOGIN = "SELECT * FROM formulario.datos WHERE usser=? AND password=?";
-	private static final String SQL_INSERT = "INSERT INTO formulario.datos (nombre,apellido,telefono,correo,dni,usser,password) VALUES (?,?,?,?,?,?,?)";	
-	private static final String SQL_UPDATE = "UPDATE formulario.datos SET nombre= ? ,apellido = ?,telefono = ?,correo= ?, dni= ? ,usser = ? ,password = ?   WHERE id_persona = ? ";
+	private static final String SQL_INSERT = "INSERT INTO formulario.datos (nombre,apellido,telefono,correo,dni,usuario,password) VALUES (?,?,?,?,?,?,?)";	
+	private static final String SQL_UPDATE = "UPDATE formulario.datos SET nombre= ? ,apellido = ?,telefono = ?,correo= ?, dni= ? ,usuario = ? ,password = ?   WHERE id_persona = ?";
 	private static final String SQL_DELETE = "DELETE FROM formulario.datos WHERE id_persona = ? ";
 	
 	private Connection conexionTransaccional;
@@ -31,6 +31,8 @@ public class PersonaDAO extends ConnectionManager implements DAO{
 	public PersonaDAO() {
 		
 	}
+	//conexion transaccional es una instancia que administra la sesion garantiando que las operaciones 
+	//hacia la base de datos sean seguras y consistentes.
 	public PersonaDAO(Connection conexionTransaccional) {
 		this.conexionTransaccional = conexionTransaccional;
 	}
@@ -149,11 +151,11 @@ public class PersonaDAO extends ConnectionManager implements DAO{
 				String nombre   =     rs.getString("nombre");
 				String apellido =   rs.getString("apellido");
 				int telefono    =      rs.getInt("telefono");
-				String email    =     rs.getString("correo");
-				int dni         =           rs.getInt("dni");
+				String email    =     rs.getString("correo");		
 				String usser     =     rs.getString("usuario");
-				String pass     =   rs.getString("password "); 
-				persona = new Persona(id, nombre, apellido, telefono, email, dni, usser, pass);
+				String pass     =   rs.getString("password");
+				int dni         =           rs.getInt("dni");
+				persona = new Persona(id, nombre, apellido, telefono, email, dni, pass, usser);
 			    personas.add(persona);	
 			
 			}
