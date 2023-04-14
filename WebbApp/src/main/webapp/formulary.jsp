@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="jsycss/stylecss.css" rel="stylesheet" type="text/css">
+<link href="jsycss/formulary.css" rel="stylesheet" type="text/css">
 <script src="jsycss/js.js"  type="text/javascript"/></script>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"> 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -109,9 +110,9 @@
 	Mujer<input type="radio" name="genero" id=mujer value="Mujer" > 
 	</td>
 	</tr>
-	<tr>
+	<tr style="text-align: center">
 		
-	<td> <input type="reset" value="Limpar formulario" class="default"> </td>
+	<td> <input type="reset" value="l impar" class="default"> </td>
 	<td> <input type="submit" value="enviar" class="default"> </td>
 		
 	</tr>
