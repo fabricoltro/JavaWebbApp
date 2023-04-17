@@ -1,4 +1,4 @@
-@charset "ISO-8859-1";
+@charset "UTF-8";
 
 body, .default {
 line-height: 1.6 em	;
@@ -8,17 +8,47 @@ font-size: 12px;
 }
 
 
-
 #enfasis-columna{
 	margin: auto;
 	width: 480px;
 	text-align: left;
-	border-collapse: collapse;
+	border-collapse: separate;
 		
 }
 
 #enfasis-columna caption{
 	font-size: 20px
+	
+}
+
+#enfasis-columna th {
+	font-size: 14px;
+	font-weight: normal;
+	padding : 12px 15px ;
+	color: #039;
+	
+}
+
+#enfasis-columna td {
+	background: #d0dafd;
+	border-right: 10px solid  transparent;
+	border-left: solid transparent;
+	
+	
+}
+
+.columna{
+	background: gray;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+}
+
+#enfasis-columna tr:hover td{
+	
+	color: #339
+	background  fuchsia; 
+	
+	
 	
 }
 
@@ -28,10 +58,6 @@ font-size: 12px;
 
 
 
-
-
-
-
-
+/*
 
 */

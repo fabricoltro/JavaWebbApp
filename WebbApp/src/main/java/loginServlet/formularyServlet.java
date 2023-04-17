@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Servlet
+ * formularyServlet implementation class formularyServlet
  */
-@WebServlet("/Servlet")
-public class Servlet extends HttpServlet {
+@WebServlet("/formularyServlet")
+public class formularyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servlet() {
+    public formularyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,7 +52,7 @@ public class Servlet extends HttpServlet {
 		
 		out.print("<html>");
 		out.print("<head>");
-		out.print("<title>Resultado Servlet</title>");
+		out.print("<title>Resultado formularyServlet</title>");
 		out.print("</head>");
 		out.print("<body>");
 		out.print("<h1>Parametros procesados por el servlet</h1>");
@@ -133,6 +133,9 @@ public class Servlet extends HttpServlet {
 		out.print("</body>");
 		out.print("</table>");
 		out.print("</html>");
+		
+		
+		// SERVLETS
 		
 		
 		//doGet(request, response);

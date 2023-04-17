@@ -81,14 +81,14 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("password = " + pas);			
 				}else {
 					request.getRequestDispatcher("index.html").forward(request, response);
-					System.out.println("problemas en el Login-Servlet");
-					out.println("Error al logearse en: Login/Servlet/java");
+					System.out.println("problemas en el Login-formularyServlet");
+					out.println("Error al logearse en: Login/formularyServlet/java");
 					out.print("error al logearse");
 				}				
 			} catch (Exception e) {
 				
-				System.out.println("problemas en el Login-Servlet");
-				out.println("Error al logearse en: Login/Servlet/java");
+				System.out.println("problemas en el Login-formularyServlet");
+				out.println("Error al logearse en: Login/formularyServlet/java");
 				e.printStackTrace();
 			}
 			

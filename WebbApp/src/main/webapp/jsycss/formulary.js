@@ -61,7 +61,7 @@ function ValidarForma(forma){
 	var password = forma.password;
 	
 	if(password.value == "" || password.value.lenght <5  ){
-	alert("Debe escribir una contraseña de almenos 6 caracteres");
+	alert("Debe escribir una contraseï¿½a de almenos 6 caracteres");
 		
 	password.focus();
 	password.select();
@@ -71,7 +71,7 @@ function ValidarForma(forma){
 	var confirmpassword = forma.confirmpassword;
 	
 	if(confirmpassword.value != password.value ){
-	alert("Las contraseñas son diferentes");
+	alert("Las contraseï¿½as son diferentes");
 		
 	password.focus();
 	password.select();
@@ -83,15 +83,15 @@ function ValidarForma(forma){
 	//var geneross = document.getElementBgetElementsByName("genero");
 	var radioSeleccionado = false;
 	
-	/*
+	
 	
 	for(var i = 0 ; i<generos.lenght ; i++){
-	if(generos[i].checked){
+	if(generos[i].checked){ 
 	radioSeleccionado = true;	
 	  }
 	
 	}
-	*/
+	
 	
 	if(generos.value == "Hombre" || generos.value == "Mujer"){
 		radioSeleccionado = true;

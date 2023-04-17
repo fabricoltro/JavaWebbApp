@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+      <%@  page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link href="jsycss/formulary.css" rel="stylesheet" type="text/css">
-<script src="jsycss/js.js"  type="text/javascript"/></script>
+<script src="jsycss/formulary.js"  type="text/javascript"/></script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"> 
@@ -16,8 +15,6 @@
 <title>Formulary</title>
 </head>
 
-<body  >
-	
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
  
   <!-- Links -->
@@ -42,11 +39,14 @@
       <a class="nav-link" href="login.jsp">Market</a>
     </li>
   </ul>
+
+<body>
+	
 </nav>
 	
 	<h1>Welcome to the formulary</h1>
 	
-	<form name="form1" action="/WebbApp/Servlet" method="post"
+	<form name="form1" action="/WebbApp/formularyServlet" method="post"
 	onsubmit= "return ValidarForma(this)" >
 	
 	<table width="200" id="enfasis-columna">
@@ -54,33 +54,40 @@
 	<caption>
 		Formulario registro de datos
 	</caption>
+	
 	<tr>
-	<td class="columna"> Nombre: </td>
-	<td> <input class="default" type="text" name="nombre" value="" 
+	 <td class="columna"> Nombre:
+	 </td>
+		<td>
+		 <input class="default" type="text" name="nombre" value="" 
 	onfocus="this.select()"/> 
-	</td>
+		</td>
 	</tr>
 	<tr>
-	<td class="columna"> Apellido: </td>
-	<td> <input class="default" type="text" name="apellido" value="" 
+	 <td class="columna"> Apellido: 
+	  </td>
+	 	<td> 
+	 	 <input class="default" type="text" name="apellido" value="" 
 	onfocus="this.select()"/> 
-	</td>
+		</td>
 	</tr>
 	<tr>
-	<td class="columna"> Telefono: </td>
-	<td> <input class="default" type="number" name="telefono" value="" 
+	 <td class="columna"> Telefono:
+	  </td>
+		<td> <input class="default" type="text" name="telefono" value="" 
 	onfocus="this.select()"/> 
-	</td>
+		</td>
 	</tr>
 	<tr>
-	<td class="columna"> Correo: </td>
-	<td> <input class="default" type="email" name="correo" value="" 
+	 <td class="columna"> Correo:
+	  </td>
+	   <td> <input class="default" type="email" name="correo" value="" 
 	onfocus="this.select()"/> 
-	</td>
+		</td>
 	</tr>
 	<tr>
 	<td class="columna"> DNI: </td>
-	<td> <input class="default" type="number" name="dni" value="" id="" 
+	<td> <input class="default" type="text" name="dni" value="" id="" 
 	onfocus="this.select()"/> 
 	</td>
 	</tr>
@@ -112,7 +119,7 @@
 	</tr>
 	<tr style="text-align: center">
 		
-	<td> <input type="reset" value="l impar" class="default"> </td>
+	<td> <input type="reset" value="limpar" class="default"> </td>
 	<td> <input type="submit" value="enviar" class="default"> </td>
 		
 	</tr>
