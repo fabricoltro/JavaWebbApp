@@ -29,12 +29,38 @@ public class LoginServlet extends HttpServlet {
     
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		Persona persona = new Persona();
+		PersonaDAO personaDao = new PersonaDAO();
+		
+		try {	
+			String accionBoton = request.getParameter("btnlogin");
+			if(accionBoton.equalsIgnoreCase("ingresar")) {
+				String usuario = request.getParameter("txtusser");
+				String contraseña = request.getParameter("txtpass");						
+				 persona=personaDao.obtenerLogin(usuario, contraseña);
+				if(persona.getUsser() != null) {
+					request.getRequestDispatcher("loginSucces.jsp").forward(request, response);	
+					System.out.println("usuario = " + usuario);	
+					System.out.println("password = " + contraseña);
+				}else {
+					request.getRequestDispatcher("login.jsp").forward(request, response);
+				}												
+			}										
+		} catch (Exception e) {
+			request.getRequestDispatcher("index.jsp").forward(request, response);			
+	}
+	
+		
+	
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+			
+			/*
 			response.setContentType("text/html;charset=UTF-8");			
 			PrintWriter out = response.getWriter();
 			Persona persona = new Persona();

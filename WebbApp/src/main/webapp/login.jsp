@@ -48,7 +48,7 @@
 
   <div class="logindiv">
     
-	<form action="/WebbApp/LoginServlet" method="Post" class="loginform" >	
+	<form action="/WebbApp/LoginServlet" method="POST" class="loginform" name="form1" >	
 	<h2>Ingreso al Sistema</h2>			
     <h3>Ingrese  usuario y contraseña</h1>
  

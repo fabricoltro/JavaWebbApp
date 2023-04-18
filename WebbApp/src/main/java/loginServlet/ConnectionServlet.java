@@ -2,6 +2,7 @@ package loginServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ConnectionServlet
- */
+
 @WebServlet("/ConnectionServlet")
 public class ConnectionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,18 +24,11 @@ public class ConnectionServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
 		String metodoHttp = request.getMethod();
 		
-		String genero = request.getParameter("genero");
 		
 		out.print("<html>");
 		out.print("<head>");
@@ -47,53 +39,37 @@ public class ConnectionServlet extends HttpServlet {
 		out.print("<table border='1'>");
 		out.print("Metodo Http:" + metodoHttp);
 		
-		out.print("<tr>");
-		out.print("<td>");
-		out.print("Usuario");
-		out.print("</td>");
-		out.print("<td>");
-		out.print();
-		out.print("</td>");
-		out.print("</tr>");
+		String uri = request.getRequestURI();
+		out.print("<br>");
+		out.print("Uri solicitada : " + uri);
 		
-		out.print("<tr>");
-		out.print("<td>");
-		out.print("Contrase�a");
-		out.print("</td>");
-		out.print("<td>");
-		out.print();
-		out.print("</td>");
-		out.print("</tr>");
+		// imprimimos todos los cabeceros disponibles
+		out.print("<br>");
+		out.print("<br>");
+		Enumeration cabeceros = request.getHeaderNames();
+		while (cabeceros.hasMoreElements()) {
+			String nombreCabecero = (String) cabeceros.nextElement();
+			out.print("<br>" + nombreCabecero + "<br>");
+			out.print(request.getHeader(nombreCabecero));
+			
+		}
+		
+		
+		
+		out.print("<body>");
+		out.print("</html>");
+		out.close();
+		
+	}
 
-		out.print("<tr>");
-		out.print("<td>");
-		out.print("Nombre");
-		out.print("</td>");
-		out.print("<td>");
-		out.print(nombre);
-		out.print("</td>");
-		out.print("</tr>");
-		
-		out.print("<tr>");
-		out.print("<td>");
-		out.print("Apellido");
-		out.print("</td>");
-		out.print("<td>");
-		out.print(apellido);
-		out.print("</td>");
-		out.print("</tr>");
-		
-		out.print("<tr>");
-		out.print("<td>");
-		out.print("DNI");
-		out.print("</td>");
-		out.print("<td>");
-		out.print(dni);
-		out.print("</td>");
-		out.print("</tr>");
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		
 		
-		doGet(request, response);
+		
+		
+		//doGet(request, response);
 	}
 
 }
