@@ -1,23 +1,9 @@
-@charset "ISO-8859-1";
-*{
-	margin: 0;
-	padding: 0;
-
-	
-}
-
-
-
-/*
-
-
+@charset "UTF-8";
 body{
-	background-image: images/2.jpg ; 
-	background:"images/2.jpg"; 
-	background-repeat: no-repeat;
-	background-size: 100%;
+	
+	background-color: red;
 }
-
+/*
 
 h1{
 	text-align: center;

@@ -26,7 +26,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);		
 		
 		System.out.println("digite del 1 al 4 la operacion que quiera realizar");
-		System.out.println("1)SELECT,  2)INSERT,  3)UPDATE,  4)DELETE  ");
+		System.out.println("1)SELECT,  2)INSERT,  3)UPDATE,  4)DELETE,  5)ObtenerLogin  ");
 		variable = Integer.parseInt(scanner.nextLine());
 		
 		switch (variable) {
@@ -66,14 +66,24 @@ public class Main {
 			System.out.println(personaeliminar);
 			break ;
 		}
+		case 5: {
+			// usar un usuario y contraseña de la BBDD
+			String usuario = "atina";   
+			String contraseña = "tina123";
+			
+			Persona personalogea = personaDao.obtenerLogin(usuario, contraseña);
+			
+			System.out.println(personalogea.toString());
+		    
+			break ;
+		}
 		default:
 			System.out.println("opcion no valida");
 		}
-		System.out.println("Select final : ");
-		List<Persona> personas = personaDao.obtenerTodos2();
-		for (Persona persona : personas ) {
-			System.out.println("persona =" + persona);
-		}	
+		
+		
+		
+		
 		
 	
 		

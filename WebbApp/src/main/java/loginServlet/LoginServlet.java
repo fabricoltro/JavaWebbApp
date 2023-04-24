@@ -29,6 +29,14 @@ public class LoginServlet extends HttpServlet {
     
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		
+	
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+			
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
@@ -41,7 +49,10 @@ public class LoginServlet extends HttpServlet {
 				String usuario = request.getParameter("txtusser");
 				String contraseña = request.getParameter("txtpass");						
 				 persona=personaDao.obtenerLogin(usuario, contraseña);
-				if(persona.getUsser() != null) {
+				if(persona.getUsser() != null && persona.getPassword() !=null) {
+					request.setAttribute("nombre", persona.getNombre());
+					request.setAttribute("apellido", persona.getApellido());
+					request.setAttribute("email", persona.getEmail());
 					request.getRequestDispatcher("loginSucces.jsp").forward(request, response);	
 					System.out.println("usuario = " + usuario);	
 					System.out.println("password = " + contraseña);
@@ -54,12 +65,9 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 		
-	
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-			
+		
+		
+		
 			/*
 			response.setContentType("text/html;charset=UTF-8");			
 			PrintWriter out = response.getWriter();

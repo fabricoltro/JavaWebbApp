@@ -41,9 +41,17 @@
 
 
 <body>
-<h1>bienvenidos al sistema</h1>
-<h1>bienvenidos al sistema</h1>
-<h1>bienvenidos al sistema</h1>
+
+
+<h1>Bienvenido <%= request.getAttribute("nombre") %>!</h1>
+	<p>Los datos de tu registro son:</p>
+	<ul>
+		<li>Usuario: <%= request.getAttribute("usuario") %></li>
+		<li>Contraseña: <%= request.getAttribute("contrasena") %></li>
+		<li>Nombre: <%= request.getAttribute("nombre") %></li>
+		<li>Apellido: <%= request.getAttribute("apellido") %></li>
+		<li>Email: <%= request.getAttribute("email") %></li>
+	</ul>
 
 </body>
 </html>

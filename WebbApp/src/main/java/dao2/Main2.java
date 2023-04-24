@@ -11,10 +11,7 @@ public class Main2 {
 		
 		
 		
-		List<Persona> personas = personaDao.obtenerLogin();
-		for (Persona persona : personas ) {
-			System.out.println("persona =" + persona);
-		}
+		
 	}
 
 }

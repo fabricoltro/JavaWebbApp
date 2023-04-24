@@ -16,7 +16,7 @@ import conexion.DAOException;
 public class PersonaDAO extends ConnectionManager implements DAO{
 			
 	private static final String SQL_SELECT = "SELECT id_persona,nombre,apellido,correo,telefono,usuario,password,dni FROM formulario.datos";
-	private static final String SQL_SELECT_LOGIN = "SELECT * FROM formulario.datos WHERE ususuario = ? AND password = ? ";
+	private static final String SQL_SELECT_LOGIN = "SELECT * FROM formulario.datos WHERE usuario = ? AND password = ? ";
 	private static final String SQL_INSERT = "INSERT INTO formulario.datos (nombre,apellido,telefono,correo,dni,usuario,password) VALUES (?,?,?,?,?,?,?)";	
 	private static final String SQL_UPDATE = "UPDATE formulario.datos SET nombre= ? ,apellido = ?,telefono = ?,correo= ?, dni= ? ,usuario = ? ,password = ?   WHERE id_persona = ?";
 	private static final String SQL_DELETE = "DELETE FROM formulario.datos WHERE id_persona = ? ";
@@ -41,9 +41,9 @@ public class PersonaDAO extends ConnectionManager implements DAO{
 	
 	@Override
 		
-	public Persona obtenerLogin(String usser, String password) throws DAOException, Exception {
-			int registros = 0;
+	public Persona obtenerLogin(String usser, String password) throws DAOException, Exception {			
 			Persona persona = null ;
+			List<Persona> personas = new ArrayList<>();	
 		try {
 			conn = ConnectionManager.conectar();
 			stm =  (PreparedStatement) conn.prepareStatement(SQL_SELECT_LOGIN);	
@@ -51,10 +51,16 @@ public class PersonaDAO extends ConnectionManager implements DAO{
 			stm.setString(2, password);	
 			rs=stm.executeQuery();
 			if(rs.next()) {
-				int id = rs.getInt("id_persona");
-				//persona.setUsser(rs.getString("usser"));
-				//persona.setPassword(rs.getString("password"));	
-				persona = new Persona(id, usser, password);
+				int id = 			 rs.getInt("id_persona");
+				String nombre   =     rs.getString("nombre");
+				String apellido =   rs.getString("apellido");
+				int telefono    =      rs.getInt("telefono");
+				String email    =     rs.getString("correo");
+				int dni         =           rs.getInt("dni");
+				String usuario    =  rs.getString("usuario");
+				String pass     =   rs.getString("password");				
+				persona = new Persona(id, nombre, apellido, telefono, email, dni, usuario, pass);
+				
 			}																											
 			
 		} catch (Exception e) {
